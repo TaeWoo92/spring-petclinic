@@ -37,7 +37,7 @@ pipeline {
                 }
             }
         }
-        satge ('Docker Image Push'){
+        stage 'Docker Image Push'){
             steps{
                 echo 'Docker Image Push'
                 script{
