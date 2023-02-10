@@ -21,6 +21,15 @@ pipeline {
                 sh 'mvn -Dmanven.test.failure.ignore=true clean package'
             }
         }
+        stage ('Docker Image Build') {
+            steps{
+                echo 'Docker Image Build'
+                dir(${env.WORKSPACE}) {
+                    sh 'docker build -t spring-pertclinic/spring-petclinic:1.0 .' 
+                }
+            }
+        }
+                
         stage ('Deploy'){
             steps{
                 echo 'Deploy'
